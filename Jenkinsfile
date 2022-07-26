@@ -21,12 +21,15 @@ pipeline {
                             sshPublisherDesc(
                                 configName: 'staging',
                                 verbose: true,
+                                sshCredentials: [
+                                    username: "$USERNAME",
+                                ],
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: 'dist/trainSchedule.zip',
                                         removePrefix: 'dist/',
                                         remoteDirectory: '/tmp',
-                                        execCommand: '/usr/bin/systemctl stop train-schedule'
+                                        execCommand: 'sudo /usr/bin/systemctl stop train-schedule'
                                     )
                                 ]
                             )
