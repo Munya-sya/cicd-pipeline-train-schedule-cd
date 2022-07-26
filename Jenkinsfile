@@ -26,7 +26,7 @@ pipeline {
                                         sourceFiles: 'dist/trainSchedule.zip',
                                         removePrefix: 'dist/',
                                         remoteDirectory: '/tmp',
-                                        execCommand: 'sudo visudo && sudo /usr/bin/systemctl stop train-schedule'
+                                        execCommand: '/usr/bin/systemctl stop train-schedule'
                                     )
                                 ]
                             )
